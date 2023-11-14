@@ -10,7 +10,6 @@ public class ExplosionForceGenerator : ForceGenerator
 
     public override void UpdateForce(Particle3D particle)
     {
-        // TODO: YOUR CODE HERE
         // power/r^2 * vector
         
         Vector2 vector =  targetPos - particle.transform.position;

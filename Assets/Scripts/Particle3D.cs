@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Particle3D : MonoBehaviour
 {
-
-    public Vector3 velocity;
-    public Vector3 acceleration;
-    public Vector3 position;
-    public Vector3 accumulatedForces;
+    public Vector3 velocity {get; set;}
+    public Vector3 acceleration {get; set;}
+    public Vector3 accumulatedForces {get; private set;}
     public float damping;
     public Vector3 gravity;
     public float inverseMass;
@@ -20,11 +18,15 @@ public class Particle3D : MonoBehaviour
 
     private void DoFixedUpdate(float dt)
     {
-        System.Array.ForEach(GetComponents<ForceGenerator>(),
-         generator => { if (generator.enabled) generator.UpdateForce(this); });
-
+        //I don't know if this version actually works, but we need to declare a var to itt over a collection
+        var generators = GetComponents<ForceGenerator>();
+        foreach (var forceGen in generators)
+        {
+            if (forceGen.enabled) forceGen.UpdateForce(this);
+        }
+        
         Integrator.Integrate(this, dt);
-        this.ClearForces();
+        ClearForces();
     }
 
     public void ClearForces()
