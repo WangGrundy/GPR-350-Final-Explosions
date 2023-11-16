@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class Particle3D : MonoBehaviour
 {
-    public Vector3 velocity {get; set;}
-    public Vector3 acceleration {get; set;}
-    public Vector3 accumulatedForces {get; private set;}
+    [HideInInspector] public Vector3 velocity; //{get; set;}
+    [HideInInspector] public Vector3 acceleration;
+    [HideInInspector] public Vector3 accumulatedForces;
     public float damping;
     public Vector3 gravity;
     public float inverseMass;
+    public float multiplier = 500;
+    private ParticleSpawner spawner;
 
     //Find position of spawner, find magnitude, add some velocity depending on that vector
     //children particle take velocity from parent
     //adjust the explosion force generator
+
+    private void Awake()
+    {
+        spawner = GameObject.FindObjectOfType<ParticleSpawner>();
+    }
+
+    private void Start()
+    {
+        SetInitialVelocity();
+    }
 
     public void FixedUpdate()
     {
@@ -31,6 +43,19 @@ public class Particle3D : MonoBehaviour
         
         Integrator.Integrate(this, dt);
         ClearForces();
+    }
+
+    //mulitplier, magnitude * velocity
+    public void SetInitialVelocity()
+    {
+        Vector3 direction = transform.position - spawner.gameObject.transform.position;
+        direction = direction.normalized;
+
+        ////velocity.x = 1 / velocity.x;
+        ////velocity.y = 1 / velocity.y;
+        ////velocity.z = 1 / velocity.z;
+
+        //velocity *= multiplier;
     }
 
     public void ClearForces()

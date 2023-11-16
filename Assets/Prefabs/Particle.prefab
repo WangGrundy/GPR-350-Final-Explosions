@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5366314409612928250}
   - component: {fileID: 2601603072136791100}
   - component: {fileID: 6694099849317267722}
+  - component: {fileID: 3435623371111178408}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -97,5 +98,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damping: 1
-  gravity: {x: 0, y: 0, z: 0}
+  gravity: {x: 0, y: -1, z: 0}
   inverseMass: 0.2
+  multiplier: 0
+--- !u!114 &3435623371111178408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905064565387402885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be5de0ff4c58b47b6801700d89e7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
+  power: 1

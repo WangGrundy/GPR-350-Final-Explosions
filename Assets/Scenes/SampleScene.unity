@@ -442,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particleNumber
-      value: 1000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particlePrefab
