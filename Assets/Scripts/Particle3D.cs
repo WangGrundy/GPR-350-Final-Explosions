@@ -11,6 +11,10 @@ public class Particle3D : MonoBehaviour
     public Vector3 gravity;
     public float inverseMass;
 
+    //Find position of spawner, find magnitude, add some velocity depending on that vector
+    //children particle take velocity from parent
+    //adjust the explosion force generator
+
     public void FixedUpdate()
     {
         DoFixedUpdate(Time.fixedDeltaTime);
