@@ -101,9 +101,11 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   accumulatedForces: {x: 0, y: 0, z: 0}
   damping: 1
-  gravity: {x: 0, y: -1, z: 0}
+  gravity: {x: 0, y: -9.8, z: 0}
   inverseMass: 0.2
-  multiplier: 0
+  multiplier: 5000
+  minMultiplierRange: 250
+  maxMultiplierRange: 750
 --- !u!114 &3435623371111178408
 MonoBehaviour:
   m_ObjectHideFlags: 0

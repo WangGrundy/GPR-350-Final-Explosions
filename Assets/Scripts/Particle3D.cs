@@ -7,11 +7,13 @@ public class Particle3D : MonoBehaviour
     [HideInInspector] public Vector3 velocity; //{get; set;}
     [HideInInspector] public Vector3 acceleration;
     [HideInInspector] public Vector3 accumulatedForces;
-    public float damping;
+    public float damping = 1f;
     public Vector3 gravity;
     public float inverseMass;
-    public float multiplier = 500;
+    [HideInInspector] public float multiplier; //TODO: Randomize this number
     private ParticleSpawner spawner;
+    [SerializeField] private int minMultiplierRange;
+    [SerializeField] private int maxMultiplierRange;
 
     //Find position of spawner, find magnitude, add some velocity depending on that vector
     //children particle take velocity from parent
@@ -24,6 +26,7 @@ public class Particle3D : MonoBehaviour
 
     private void Start()
     {
+        randomizeMultiplier();
         SetInitialVelocity();
     }
 
@@ -48,9 +51,7 @@ public class Particle3D : MonoBehaviour
     //mulitplier, magnitude * velocity
     public void SetInitialVelocity()
     {
-        Vector3 direction = transform.position - spawner.gameObject.transform.position;
-        direction = direction.normalized;
-
+        Vector3 direction = (transform.position - spawner.gameObject.transform.position).normalized;
         velocity = direction;
     }
 
@@ -62,6 +63,11 @@ public class Particle3D : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         accumulatedForces += force;
+    }
+
+    private void randomizeMultiplier()
+    {
+        multiplier = Random.Range(minMultiplierRange, maxMultiplierRange);
     }
     
 }
