@@ -51,11 +51,7 @@ public class Particle3D : MonoBehaviour
         Vector3 direction = transform.position - spawner.gameObject.transform.position;
         direction = direction.normalized;
 
-        ////velocity.x = 1 / velocity.x;
-        ////velocity.y = 1 / velocity.y;
-        ////velocity.z = 1 / velocity.z;
-
-        //velocity *= multiplier;
+        velocity = direction;
     }
 
     public void ClearForces()

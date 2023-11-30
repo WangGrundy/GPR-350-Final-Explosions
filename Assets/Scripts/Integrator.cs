@@ -10,7 +10,7 @@ public static class Integrator
         particle.transform.position += new Vector3(particle.velocity.x * dt, particle.velocity.y * dt, particle.velocity.z * dt);
 
         //Find Acceleration:  f/m = a
-        particle.acceleration = particle.inverseMass  * particle.accumulatedForces;
+        particle.acceleration = particle.inverseMass * particle.accumulatedForces;
         particle.acceleration += particle.gravity;
         
         //add velocity to the particle

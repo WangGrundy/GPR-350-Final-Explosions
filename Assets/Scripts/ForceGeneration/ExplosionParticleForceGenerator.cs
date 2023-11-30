@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class ExplosionParticleForceGenerator : ForceGenerator
 {
-    public Vector3 targetPos;
-    public float radius = 200;
+    public Vector3 spawnerPosition;
+    public float radius;
     private Particle3D particleScript;
     private ParticleSpawner spawnerScript;
     private float multiplier;
@@ -21,30 +21,36 @@ public class ExplosionParticleForceGenerator : ForceGenerator
     private void Start()
     {
         multiplier = particleScript.multiplier;
-        targetPos = spawnerScript.gameObject.transform.position;
+        spawnerPosition = spawnerScript.gameObject.transform.position;
     }
 
     public override void UpdateForce(Particle3D particle)
     {
+        radius = (spawnerScript.gameObject.transform.position - particle.transform.position).magnitude;
 
+        Vector3 directionVector = particle.velocity.normalized;
         // 1/r^2
-        Vector3 newVelocity = particle.velocity.normalized;
-        float k = 1 / (radius * radius);
-        force = k * ;
-        particle.AddForce(vectorce);
-
-
-        // power/r^2 * vector
-        Vector3 vector = targetPos - particle.transform.position;
-        float radiusSquared = 1 / vector.sqrMagnitude;
-        vector = vector.normalized; fo* particle,.
-
+        float magnitude = 1 / (radius * radius);
+        force = magnitude * directionVector;
 
         //vector *= particle.damping; //??
-        particle.AddForce(vectorce);
+        particle.AddForce(force);
 
+
+        ///////////////////////////////////////////////////////////////////
+        //Vector2 vector = targetPos - particle.transform.position;
+        //float radiusSquared = vector.sqrMagnitude;
+        //vector = vector.normalized;
+
+        //float k = power / radiusSquared;
+        //vector *= k;  
+
+        ////vector *= particle.damping; //??
+        //particle.AddForce(vector);
 
     }
+
+
 
 
 }

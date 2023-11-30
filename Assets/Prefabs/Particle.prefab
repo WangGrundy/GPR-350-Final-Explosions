@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4304e1f413fb21141b272aec70552fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  accumulatedForces: {x: 0, y: 0, z: 0}
   damping: 1
   gravity: {x: 0, y: -1, z: 0}
   inverseMass: 0.2
@@ -113,5 +116,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22be5de0ff4c58b47b6801700d89e7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPos: {x: 0, y: 0, z: 0}
-  power: 1
+  spawnerPosition: {x: 0, y: 0, z: 0}
+  radius: 0

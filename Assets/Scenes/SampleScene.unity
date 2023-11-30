@@ -442,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particleNumber
-      value: 1
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particlePrefab
@@ -450,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 4905064565387402885, guid: ab5397fd79d4fd448bacec322d649025, type: 3}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: radiusOfSpawnage
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9164430368992940930, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: m_Name
