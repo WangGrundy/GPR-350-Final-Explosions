@@ -7,13 +7,18 @@ public class Particle3D : MonoBehaviour
     [HideInInspector] public Vector3 velocity; //{get; set;}
     [HideInInspector] public Vector3 acceleration;
     [HideInInspector] public Vector3 accumulatedForces;
+    [HideInInspector] public float multiplier; //TODO: Randomize this number
+
+    [SerializeField] private int minMultiplierRange;
+    [SerializeField] private int maxMultiplierRange;
+
     public float damping = 1f;
     public Vector3 gravity;
     public float inverseMass;
-    [HideInInspector] public float multiplier; //TODO: Randomize this number
     private ParticleSpawner spawner;
-    [SerializeField] private int minMultiplierRange;
-    [SerializeField] private int maxMultiplierRange;
+
+    public Vector3 center => transform.position;
+    public float radius = .5f;
 
     //Find position of spawner, find magnitude, add some velocity depending on that vector
     //children particle take velocity from parent
