@@ -133,4 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b233ac84c54b4e41aa4e58e15fb0768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 5
+  newMaterial: {fileID: 0}
   Radius: 0.5

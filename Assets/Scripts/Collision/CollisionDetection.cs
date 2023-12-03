@@ -104,6 +104,13 @@ public static class CollisionDetection
         CollisionInfo info = GetCollisionInfo(s, p);
 
         ApplyCollisionResolution(s, p, info);
+
+        //change texture
+        if(info.penetration > 0)
+        {
+            Debug.Log("changing texture");
+            s.changeTexture();
+        }
     }
 
     private static void ApplyCollisionResolution(PhysicsCollider c1, PhysicsCollider c2, CollisionInfo info)
