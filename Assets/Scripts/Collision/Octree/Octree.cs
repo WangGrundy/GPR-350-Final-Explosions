@@ -10,7 +10,7 @@ public interface Octree
     /// Inserts a particle into the octree, descending its children as needed.
     /// </summary>
     /// <param name="particle"></param>
-    public void Insert(Particle3D particle);
+    public void Insert(Sphere particle);
 
     /// <summary>
     /// Does all necessary collision detection tests.
@@ -125,19 +125,20 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
     /// may need to be inserted into more than one child.
     /// </summary>
     /// <param name="sphere">The bounding sphere of the particle to insert.</param>
-    public void Insert(Particle3D sphere)
+    public void Insert(Sphere sphere)
     {
         //Determine where the sphere center would fit in the octree
         int index = 0;
-        if (position.x < sphere.center.x) index += 1;
-        if (position.y < sphere.center.y) index += 2;
-        if (position.z < sphere.center.z) index += 4;
+        if (position.x < sphere.Center.x) index += 1;
+        if (position.y < sphere.Center.y) index += 2;
+        if (position.z < sphere.Center.z) index += 4;
 
         //NOTE: Used for ensuring that the sphere is not inserted into the same index more than once
         HashSet<int> spheres = new HashSet<int>();
 
         //Detect in multiple zones
-        Vector3 d = position - sphere.transform.position;
+
+        Vector3 d = position - sphere.position;
 
         //booleans used for comparisons  
         bool xCross = false, yCross = false, zCross = false;
@@ -146,8 +147,9 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
         int axis = 0; //used for a scenario where the sphere crosses all 3 axis
 
         //gets the initial index of where the center of the sphere falls under
+
         //checks x axis overlap
-        if (Mathf.Abs(d.x) < sphere.radius)
+        if (Mathf.Abs(d.x) < sphere.Radius)
         {
             //index +- 1;
             xCross = true;
@@ -155,7 +157,7 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
         }
 
         //checks y axis overlap
-        if (Mathf.Abs(d.y) < sphere.radius)
+        if (Mathf.Abs(d.y) < sphere.Radius)
         {
             //index +- 2;
             yCross = true;
@@ -163,7 +165,7 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
         }
 
         //checks z axis overlap
-        if (Mathf.Abs(d.z) < sphere.radius)
+        if (Mathf.Abs(d.z) < sphere.Radius)
         {
             //index +- 4;
             zCross = true;
@@ -233,6 +235,7 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
         int oldIndex = index; //used for resetting the index back to its original value
 
         //Checks for crossing
+
         //xcross
         if (xCross && xNeg)
         {
@@ -256,6 +259,7 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
         }
 
         index = oldIndex; //resets the index
+
 
         if (yCross && yNeg)
         {
@@ -353,8 +357,8 @@ public class OctreeNode : Octree //represents one of the nodes on the tree that 
 /// </summary>
 public class OctreeObjects : Octree //represents one of the leaf nodes
 {
-    private List<Particle3D> _spheresList = new List<Particle3D>();
-    public ICollection<Particle3D> Objects
+    private List<Sphere> _spheresList = new List<Sphere>();
+    public ICollection<Sphere> Objects
     {
         get
         {
@@ -369,7 +373,7 @@ public class OctreeObjects : Octree //represents one of the leaf nodes
     /// particles in this node in ResolveCollisions().
     /// </summary>
     /// <param name="particle">The particle to insert.</param>
-    public void Insert(Particle3D particle)
+    public void Insert(Sphere particle)
     {
         _spheresList.Add(particle);
 
@@ -383,20 +387,11 @@ public class OctreeObjects : Octree //represents one of the leaf nodes
     {
         for (int i = 0; i < _spheresList.Count; i++)
         {
-            Particle3D s1 = _spheresList[i];
+            Sphere s1 = _spheresList[i];
             for (int j = i + 1; j < _spheresList.Count; j++)
             {
-                Particle3D s2 = _spheresList[j];
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER //TODO: DO THIS LATER
-                //CollisionDetection.ApplyCollisionResolution(s1, s2);
+                Sphere s2 = _spheresList[j];
+                CollisionDetection.ApplyCollisionResolution(s1, s2);
             }
         }
     }

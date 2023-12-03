@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class ExplosionParticleForceGenerator : ForceGenerator
 {
     public Vector3 spawnerPosition;
-    public float radius;
+
+    private float radius;
     private ParticleSpawner spawnerScript;
     private float multiplier;
     private Vector3 force;

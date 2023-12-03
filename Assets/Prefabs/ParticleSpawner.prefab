@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cb94e8e2ff514cb1df552e31fad9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
+  radiusOfSpawnage: 5
+  particleNumber: 100
+  particles: []
+  particlePrefab: {fileID: 4905064565387402885, guid: ab5397fd79d4fd448bacec322d649025, type: 3}

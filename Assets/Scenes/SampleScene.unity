@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 277401773}
   - component: {fileID: 277401772}
   - component: {fileID: 277401771}
+  - component: {fileID: 277401774}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 876dcae2871318f41a2aefe14bebe5ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,12 +201,24 @@ Transform:
   m_GameObject: {fileID: 277401769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
+  m_LocalScale: {x: 1000, y: 10, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &277401774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277401769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a32fe5a4a81ad64688767327ff1c789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +405,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1136131019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9164430368992940930, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
+  m_PrefabInstance: {fileID: 1583557076615256165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136131020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136131019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db55848efc7fd44dbb52c46409a7389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSphereObjects: []
 --- !u!1001 &1583557076615256165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -442,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particleNumber
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: particlePrefab
@@ -450,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 4905064565387402885, guid: ab5397fd79d4fd448bacec322d649025, type: 3}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: radiusOfSpawnage
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9164430368992940930, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: m_Name
@@ -459,7 +490,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9164430368992940930, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136131020}
   m_SourcePrefab: {fileID: 100100000, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

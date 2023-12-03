@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2601603072136791100}
   - component: {fileID: 6694099849317267722}
   - component: {fileID: 3435623371111178408}
+  - component: {fileID: 4118780831869251832}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -100,12 +101,13 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   accumulatedForces: {x: 0, y: 0, z: 0}
-  damping: 1
-  gravity: {x: 0, y: -9.8, z: 0}
-  inverseMass: 0.2
   multiplier: 5000
   minMultiplierRange: 250
   maxMultiplierRange: 750
+  damping: 1
+  gravity: {x: 0, y: -9.8, z: 0}
+  inverseMass: 0.05
+  radius: 0.5
 --- !u!114 &3435623371111178408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,4 +121,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerPosition: {x: 0, y: 0, z: 0}
-  radius: 0
+--- !u!114 &4118780831869251832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905064565387402885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b233ac84c54b4e41aa4e58e15fb0768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.5

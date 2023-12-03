@@ -7,9 +7,16 @@ public class ParticleSpawner : MonoBehaviour
 {
     [SerializeField] private float radiusOfSpawnage;
     [SerializeField] private int particleNumber;
-    [SerializeField] private GameObject[] particles;
+    //[SerializeField] private GameObject[] particles;
     [SerializeField] private GameObject particlePrefab;
 
+    private CollisionManager CollisionManagerScript;
+
+    private void Awake()
+    {
+        CollisionManagerScript = GetComponent<CollisionManager>();
+        CollisionManagerScript.allSphereObjects = new GameObject[particleNumber];
+    }
     private void Start()
     {
         spawnParticles();
@@ -21,14 +28,13 @@ public class ParticleSpawner : MonoBehaviour
     public void spawnParticles()
     {
         Vector3 position = Vector3.zero;
-        particles = new GameObject[particleNumber];
-
+        
         for(int i = 0; i < particleNumber; i++)
         {
             // + difference from particle spawner
             position = ReturnRandomPositionOnSurface() + transform.position;
-            particles[i] = Instantiate(particlePrefab);
-            particles[i].transform.position = position;
+            CollisionManagerScript.allSphereObjects[i] = Instantiate(particlePrefab);
+            CollisionManagerScript.allSphereObjects[i].transform.position = position;
         }
     }
 
