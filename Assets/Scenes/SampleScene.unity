@@ -202,7 +202,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -100, z: 0}
-  m_LocalScale: {x: 1000, y: 10, z: 1000}
+  m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,6 +469,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5973208619553953246, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}
+      propertyPath: spawnType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6648297909864574340, guid: f8a6d3ab5ad2b8048a4e90a49dbde656, type: 3}

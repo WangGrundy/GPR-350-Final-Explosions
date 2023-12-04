@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ParticleSpawner : MonoBehaviour
 {
@@ -9,6 +12,7 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] private int particleNumber;
     //[SerializeField] private GameObject[] particles;
     [SerializeField] private GameObject particlePrefab;
+    [SerializeField, Range(0, 2)] private int spawnType;
 
     private CollisionManager CollisionManagerScript;
 
@@ -32,7 +36,17 @@ public class ParticleSpawner : MonoBehaviour
         for(int i = 0; i < particleNumber; i++)
         {
             // + difference from particle spawner
-            position = ReturnRandomPositionOnSurface() + transform.position;
+            switch(spawnType)
+            {
+                case 0: position = ReturnRandomPosition() + transform.position;
+                    break;
+                case 1: position = ReturnRandomPositionOnSurface() + transform.position;
+                    break;
+                case 2: position = ReturnRandomPositionOnAsymtope() + transform.position;
+                    break;
+            }
+            
+           
             CollisionManagerScript.allSphereObjects[i] = Instantiate(particlePrefab);
             CollisionManagerScript.allSphereObjects[i].transform.position = position;
         }
