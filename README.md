@@ -10,8 +10,6 @@ TODO:
 
 -Add other objects to the scene
 -Apply force to those objects 
--Add textures 
--Add it so that when the spheres bounce once, they turn into smoke and then quickly disappear. 
 -Have a sphere that explodes(disappears) when exploding. 
 -Add a button to explode instead of calling in the start
 
