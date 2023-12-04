@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Effect_05_Nuke
+  m_Shader: {fileID: 4800000, guid: 1d58a8e283100ea4f8435e923e54553e, type: 3}
+  m_Parent: {fileID: 2100000, guid: f21bca882db40b14286063d77faabfb9, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - IS_MASK_FADE
+  - IS_NORMAL_ANIMATE
+  - IS_SOFT_PARTICLES
+  - IS_TEXCOORD_MOVE
+  - IS_TEXTURE_ANIMATE
+  - IS_VERTEXANIMATION
+  m_InvalidKeywords:
+  - IS_UNITY_PARTICLE_INSTANCING_ENABLED
+  - _ALPHAPREMULTIPLY_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3cb02bf457cde1b48af42b67ee413532, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 1dd87d263698bdd489172bf9aa265da1, type: 3}
+        m_Scale: {x: 4, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 708d24fa8e8cc804aba4ce74d4e6a1b1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendDst: 1
+    - _ColorFactor: 5
+    - _MaskFade: 1
+    - _NoiseScale: 0.02
+    - _NormalAnimate: 1
+    - _NormalAnimateSpeed: 0.5
+    - _NormalDistortionFactor: 2
+    - _RimScale: 2
+    - _TexPosMove: 0.39
+    - _TexcoordMove: 1
+    - _TexcoordMoveStrength: 5
+    - _TextureAnimate: 1
+    - _TextureAnimateStyle: 0
+    - _TextureBlend: 0
+    - _VertexAnimation: 1
+    - _xTexcoordMove: 0.17
+    m_Colors:
+    - _NoiseValue: {r: 0.5, g: 0.1, b: 0.5, a: 1}
+    - _RimColor: {r: 0.9716981, g: 0, b: 0.009329386, a: 1}
+    - _TintColor: {r: 8.47419, g: 1.0648196, b: 0, a: 1}
+  m_BuildTextureStacks: []

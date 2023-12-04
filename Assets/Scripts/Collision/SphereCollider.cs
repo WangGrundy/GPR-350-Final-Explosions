@@ -12,6 +12,8 @@ public class Sphere : PhysicsCollider
     public float Radius = .5f;
     private Renderer renderer;
 
+    private bool collided = false;
+
     private void Awake()
     {
         renderer = GetComponent<Renderer>();
@@ -22,15 +24,20 @@ public class Sphere : PhysicsCollider
         if(newMaterial != renderer.material)
         {
             renderer.material = newMaterial;
+            collided = true;
         }
 
-        StartCoroutine(DestroyObject());
+        if (collided)
+        {
+            Debug.Log("destroying object");
+            StartCoroutine(DestroyObject());
+        }
     }
 
     IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(delay);
-        Destroy(this);
+        Destroy(gameObject);
     }
 
 }

@@ -108,7 +108,6 @@ public static class CollisionDetection
         //change texture
         if(info.penetration > 0)
         {
-            Debug.Log("changing texture");
             s.changeTexture();
         }
     }
