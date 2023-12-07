@@ -29,7 +29,6 @@ public class Sphere : PhysicsCollider
 
         if (collided)
         {
-            Debug.Log("destroying object");
             StartCoroutine(DestroyObject());
         }
     }

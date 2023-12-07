@@ -23,7 +23,7 @@ public class ParticleSpawner : MonoBehaviour
     }
     private void Start()
     {
-        spawnParticles();
+        //spawnParticles();
     }
 
     /// <summary>
@@ -129,9 +129,18 @@ public class ParticleSpawner : MonoBehaviour
         randomNum.y = 1 / randomNum.y;
         randomNum.z = 1 / randomNum.z;
 
-        // 3. Multiply each number by the radius of your sphere.
-        randomNum *= radiusOfSpawnage;
-        return randomNum;
-    }
+        Vector3 randomNumB;
+        float extraRandom = radiusOfSpawnage * 0.1f;
+        randomNumB.x = randomNum.x;
+        randomNumB.y = randomNum.y;
+        randomNumB.z = randomNum.z;
 
+        randomNumB.x += Random.Range(-extraRandom, extraRandom);
+        randomNumB.y += Random.Range(-extraRandom, extraRandom);
+        randomNumB.z += Random.Range(-extraRandom, extraRandom);
+
+        // 3. Multiply each number by the radius of your sphere.
+        randomNumB *= radiusOfSpawnage;
+        return randomNumB;
+    }
 }
