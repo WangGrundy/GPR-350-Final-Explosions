@@ -9,16 +9,11 @@ https://assetstore.unity.com/packages/2d/textures-materials/realistic-forest-tex
 TODO: 
 
 -Add other objects to the scene
+<br />
 -Apply force to those objects 
+<br />
 -Have a sphere that explodes(disappears) when exploding. 
--Add a button to explode instead of calling in the start
+<br />
 
 
 Possible idea: Particles exploding into more particles
-
-
-In class: 
--Ask if this is enough.
--Ask about avoiding tunneling
-
-
