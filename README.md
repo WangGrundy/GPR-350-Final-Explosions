@@ -12,8 +12,3 @@ TODO:
 <br />
 -Apply force to those objects 
 <br />
--Have a sphere that explodes(disappears) when exploding. 
-<br />
-
-
-Possible idea: Particles exploding into more particles
