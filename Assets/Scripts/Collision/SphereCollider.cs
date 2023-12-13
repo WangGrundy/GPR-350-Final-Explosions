@@ -11,6 +11,7 @@ public class Sphere : PhysicsCollider
     public Vector3 Center => transform.position;
     public float Radius = .5f;
     private Renderer renderer;
+    public bool destroyOnCollision = false;
 
     private bool collided = false;
 

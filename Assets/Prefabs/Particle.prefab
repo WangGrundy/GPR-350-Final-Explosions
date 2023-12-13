@@ -107,7 +107,9 @@ MonoBehaviour:
   damping: 1
   gravity: {x: 0, y: -9.8, z: 0}
   inverseMass: 0.05
+  spawner: {fileID: 0}
   radius: 2.5
+  ignoreIntialVelocity: 0
 --- !u!114 &3435623371111178408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +138,4 @@ MonoBehaviour:
   delay: 2
   newMaterial: {fileID: 2100000, guid: b68e0b09b46e64c409c0d1f70ceaedc6, type: 2}
   Radius: 2.5
+  destroyOnCollision: 1

@@ -106,7 +106,7 @@ public static class CollisionDetection
         ApplyCollisionResolution(s, p, info);
 
         //change texture
-        if(info.penetration > 0)
+        if(info.penetration > 0 && s.destroyOnCollision)
         {
             s.changeTexture();
         }
