@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Particle3D : MonoBehaviour
 {
-    [HideInInspector] public Vector3 velocity; //{get; set;}
+    public Vector3 velocity; //{get; set;}
     [HideInInspector] public Vector3 acceleration;
     [HideInInspector] public Vector3 accumulatedForces;
     [HideInInspector] public float multiplier; //TODO: Randomize this number
@@ -15,10 +15,12 @@ public class Particle3D : MonoBehaviour
     public float damping = 1f;
     public Vector3 gravity;
     public float inverseMass;
-    private ParticleSpawner spawner;
+    public ParticleSpawner spawner;
 
     public Vector3 center => transform.position;
     public float radius = .5f;
+
+    public bool ignoreIntialVelocity = false;
 
     //Find position of spawner, find magnitude, add some velocity depending on that vector
     //children particle take velocity from parent
@@ -56,7 +58,14 @@ public class Particle3D : MonoBehaviour
     //mulitplier, magnitude * velocity
     public void SetInitialVelocity()
     {
-        Vector3 direction = (transform.position - spawner.gameObject.transform.position).normalized;
+        Vector3 direction;
+
+        if (ignoreIntialVelocity)
+        {
+            return;
+        }
+
+        direction = (transform.position - spawner.gameObject.transform.position).normalized;
         velocity = direction;
     }
 

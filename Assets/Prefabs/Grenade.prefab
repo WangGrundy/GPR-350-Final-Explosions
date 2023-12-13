@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 5366314409612928250}
   - component: {fileID: 2601603072136791100}
   - component: {fileID: 6694099849317267722}
-  - component: {fileID: 3435623371111178408}
   - component: {fileID: 4118780831869251832}
+  - component: {fileID: 8091361954274697393}
+  - component: {fileID: 1981438241822844817}
   m_Layer: 0
-  m_Name: Particle
+  m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,19 +109,7 @@ MonoBehaviour:
   gravity: {x: 0, y: -9.8, z: 0}
   inverseMass: 0.05
   radius: 2.5
---- !u!114 &3435623371111178408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4905064565387402885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22be5de0ff4c58b47b6801700d89e7d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnerPosition: {x: 0, y: 0, z: 0}
+  ignoreIntialVelocity: 0
 --- !u!114 &4118780831869251832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +122,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b233ac84c54b4e41aa4e58e15fb0768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2
+  delay: 15
   newMaterial: {fileID: 2100000, guid: b68e0b09b46e64c409c0d1f70ceaedc6, type: 2}
   Radius: 2.5
+--- !u!114 &8091361954274697393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905064565387402885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7cb94e8e2ff514cb1df552e31fad9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusOfSpawnage: 20
+  particleNumber: 50
+  particlePrefab: {fileID: 4905064565387402885, guid: ab5397fd79d4fd448bacec322d649025, type: 3}
+  spawnType: 0
+--- !u!114 &1981438241822844817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905064565387402885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db55848efc7fd44dbb52c46409a7389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSphereObjects: []

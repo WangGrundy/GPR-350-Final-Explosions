@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using Random = UnityEngine.Random;
 
 public class ParticleSpawner : MonoBehaviour
@@ -13,6 +14,7 @@ public class ParticleSpawner : MonoBehaviour
     //[SerializeField] private GameObject[] particles;
     [SerializeField] private GameObject particlePrefab;
     [SerializeField, Range(0, 2)] private int spawnType;
+    private float delay = 2;
 
     private CollisionManager CollisionManagerScript;
 
@@ -143,4 +145,13 @@ public class ParticleSpawner : MonoBehaviour
         randomNumB *= radiusOfSpawnage;
         return randomNumB;
     }
+
+
+    public IEnumerator delayExplosion()
+    {
+        yield return new WaitForSeconds(delay);
+        spawnParticles();
+
+    }
+
 }
