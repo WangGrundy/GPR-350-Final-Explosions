@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class ParticleSpawner : MonoBehaviour
@@ -18,10 +19,16 @@ public class ParticleSpawner : MonoBehaviour
 
     private CollisionManager CollisionManagerScript;
 
+    private float counter;
+    private float duration = 3;
+    private PasserbyForceGenerator generator;
+
     private void Awake()
     {
+        particleNumber++;
         CollisionManagerScript = GetComponent<CollisionManager>();
         CollisionManagerScript.allSphereObjects = new GameObject[particleNumber];
+        generator = FindObjectOfType<PasserbyForceGenerator>();
     }
     private void Start()
     {
@@ -33,6 +40,11 @@ public class ParticleSpawner : MonoBehaviour
     /// </summary>
     public void spawnParticles()
     {
+        counter = duration;
+        Debug.Log("Sending to passerby");
+
+        generator.doExplosion = true;
+
         Vector3 position = Vector3.zero;
         
         for(int i = 0; i < particleNumber; i++)
@@ -52,6 +64,7 @@ public class ParticleSpawner : MonoBehaviour
             CollisionManagerScript.allSphereObjects[i] = Instantiate(particlePrefab);
             CollisionManagerScript.allSphereObjects[i].transform.position = position;
         }
+        CollisionManagerScript.AddObjectToTree();
     }
 
     /// <summary>
@@ -154,4 +167,26 @@ public class ParticleSpawner : MonoBehaviour
 
     }
 
+    private void MovePasserby()
+    {
+        if(counter >= 0)
+        {
+            return;
+        }
+
+        if (!generator.doExplosion)
+        {
+            return;
+        }
+
+        generator.doExplosion = false;
+        Debug.Log("no longer moving passerby");
+    }
+
+    void Update()
+    {
+        counter -= Time.deltaTime;
+        MovePasserby();
+
+    }
 }

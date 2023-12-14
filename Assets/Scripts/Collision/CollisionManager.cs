@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class CollisionManager : MonoBehaviour
 {
-    Octree tree;
+    public Octree tree;
     [HideInInspector] public GameObject[] allSphereObjects;
 
     public enum CollisionType
@@ -18,7 +18,7 @@ public class CollisionManager : MonoBehaviour
 
     public static CollisionType collisionType = CollisionType.Octree;
 
-    private void Start()
+    private void Awake()
     {
         //creates octree
         tree = Octree.Create(new Vector3(0,0,0), 5f, 5);
@@ -93,6 +93,14 @@ public class CollisionManager : MonoBehaviour
             {
                 collisionType = CollisionType.Standard;
             }
+        }
+    }
+
+    public void AddObjectToTree()
+    {
+        foreach (GameObject obj in allSphereObjects)
+        {
+            tree.Insert(obj.GetComponent<Sphere>());
         }
     }
 }
