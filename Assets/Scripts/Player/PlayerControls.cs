@@ -11,6 +11,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction move;
     private InputAction fire;
     private InputAction look;
+    private InputAction explode;
     [SerializeField] private float moveSpeed = 5;
 
     //camera vars
@@ -22,6 +23,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private GameObject grenadePrefab;
     [SerializeField] private float grenadeVelocityMultiplyer;
     private Sphere sphere;
+
+    [SerializeField] private ParticleSpawner spawner;
 
     void Awake()
     {
@@ -40,6 +43,12 @@ public class PlayerControls : MonoBehaviour
         fire = controls.Player.Fire;
         fire.Enable();
         fire.performed += Fire;
+
+        explode = controls.Player.Explode;
+        explode.Enable();
+        explode.performed += Explode;
+
+
     }
 
     private void OnDisable()
@@ -47,6 +56,7 @@ public class PlayerControls : MonoBehaviour
         move.Disable();
         look.Disable();
         fire.Disable();
+        explode.Disable();
     }
 
     // Update is called once per frame
@@ -90,5 +100,11 @@ public class PlayerControls : MonoBehaviour
         spawner.StartCoroutine(spawner.delayExplosion());
 
        
+    }
+
+    private void Explode(InputAction.CallbackContext context)
+    {
+        Debug.Log("Exploding");
+       spawner.spawnParticles();
     }
 }

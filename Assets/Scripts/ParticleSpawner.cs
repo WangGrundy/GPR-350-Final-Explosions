@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
@@ -59,7 +55,6 @@ public class ParticleSpawner : MonoBehaviour
                 case 2: position = ReturnRandomPositionOnAsymtope() + transform.position;
                     break;
             }
-            
            
             CollisionManagerScript.allSphereObjects[i] = Instantiate(particlePrefab);
             CollisionManagerScript.allSphereObjects[i].transform.position = position;

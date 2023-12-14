@@ -1258,6 +1258,7 @@ MonoBehaviour:
   grenadeDirection: {fileID: 409862130}
   grenadePrefab: {fileID: 4905064565387402885, guid: c45463a9e7a99e5419a1144fe751213c, type: 3}
   grenadeVelocityMultiplyer: 40
+  spawner: {fileID: 1136131021}
 --- !u!136 &1107138076
 CapsuleCollider:
   m_ObjectHideFlags: 0

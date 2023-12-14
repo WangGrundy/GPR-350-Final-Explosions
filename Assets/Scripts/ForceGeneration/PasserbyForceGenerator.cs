@@ -24,13 +24,6 @@ public class PasserbyForceGenerator : ForceGenerator
         tree = ogCollisionManagerScript.tree;
         tree.Insert(sphere);
 
-        //CollisionManager[] managers = FindObjectsOfType<CollisionManager>();
-
-        //foreach(var m in managers)
-        //{
-        //    tree = m.tree;
-        //    tree.Insert(sphere);
-        //}
     }
 
     public override void UpdateForce(Particle3D particle)
