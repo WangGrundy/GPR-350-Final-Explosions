@@ -37,7 +37,6 @@ public class ParticleSpawner : MonoBehaviour
     public void spawnParticles()
     {
         counter = duration;
-        Debug.Log("Sending to passerby");
 
         generator.doExplosion = true;
 

@@ -31,7 +31,6 @@ public class PasserbyForceGenerator : ForceGenerator
         force = Vector3.zero;
         if (doExplosion)
         {
-            Debug.Log("Moving Passerby");
             multiplier = particle.multiplier;
             radius = (spawnerScript.gameObject.transform.position - particle.transform.position).magnitude;
             Vector3 directionVector = particle.velocity.normalized;
